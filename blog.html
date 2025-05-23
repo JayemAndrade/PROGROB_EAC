@@ -1,0 +1,369 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Blog</title>
+            <link rel="icon" type="eac" href="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg">
+            <style>
+                body {
+                    font-family: 'Verdana', sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #161616;
+                    opacity: 0; 
+                    transition: opacity 1s ease; 
+                    }
+                    body.fade-in {
+                    opacity: 1; 
+                    }
+                header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 10px 20px;
+                    width: 100vw;
+                    background: url('Image/header.png') 
+                        no-repeat center center;
+                    background-size: cover;
+                    min-height: 100px;
+                    
+                }
+        
+                header img {
+                    width: 70px;
+                }
+        
+                header h3 a {
+                    text-decoration: none;
+                    background-color: rgba(255, 255, 255, 0.79);
+                    padding: 5px;
+                    color: rgb(212, 13, 13);
+                    font-weight: bold;
+                    border-radius: 5px;
+                }
+                img:hover {
+                    transform: scale(1.1);
+                  }
+        
+                .logout-btn {
+                    background: red;
+                    color: white;
+                    border: none;
+                    padding: 8px 15px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    margin-right: 5%;
+                    
+                }
+        
+                .logout-btn:hover {
+                    background: darkred;
+                }
+        
+        
+                nav {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    padding: 15px;
+                    background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);
+                    border: solid red;
+                }
+        
+                nav a {
+                    color: rgb(4, 4, 4);
+                    text-decoration: none;
+                    margin: 0 15px;
+                    font-size: 18px;
+                    transition: color 0.3s;
+                }
+        
+                nav a:hover {
+                    color: #a81212;
+                }
+                .username{
+                    background-color: rgb(247, 205, 17);
+                    font-size: medium;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+                    padding: 3px;
+                }
+                nav a:hover {
+                    color: #a81212;
+                }
+
+                .main-content {
+                    padding: 25px;
+                    max-width: 1100px;
+                    margin: 0 auto;
+                    background-color: #fff;
+                    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px;
+                }
+
+                .intro-section {
+                    background-color: #f8f9fa;
+                    padding: 25px;
+                    border-radius: 10px;
+                    margin-bottom: 25px;
+                }
+                button {
+                    padding: 12px 20px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, transform 0.2s;
+                }
+
+                h1 {
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    background: linear-gradient(to right, #ff0000, #ffeb00, #1703ae);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+                    animation: fadeIn 1.5s ease-in-out;
+                    padding: 20px;
+                    display: inline-block;
+                    text-align: center;
+                }
+        
+
+                .team-section {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                    gap: 20px;
+                    margin-bottom: 25px;
+                }
+
+                .team-member {
+                    text-align: center;
+                    padding: 15px;
+                    background-color: #ecf0f1;
+                    border-radius: 10px;
+                }
+
+                .team-member img {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-bottom: 10px;
+                }
+
+                .article-section {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                }
+                .article {
+                    background-color: #ecf0f1;
+                    padding: 15px;
+                    border-radius: 10px;
+                    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+                    max-width: 600px;
+                    margin: 20px auto; 
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                .article.reveal {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                .article:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .article img, .article video {
+                    max-width: 100%; 
+                    max-height: 300px; 
+                    object-fit: cover; 
+                    border-radius: 10px;
+                    display: block;
+                    margin: 0 auto; 
+                }
+
+                .article h2, .article p {
+                    text-align: center;
+                }
+
+                .site-footer {
+                    background-image: linear-gradient(to right, red, white, blue);
+                    color: #181704;
+                    text-align: center;
+                    padding: 20px 0;
+                    position: relative;
+                    bottom: 0;
+                    width: 100%;
+                }
+
+                @keyframes fadeIn {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(-20px);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <a href="https://www.facebook.com/eac.edu.ph">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg" alt="EAC">
+                    <img style="border-radius: 10px; width: 75px;" src="Image/hydro.jpg"  alt="robot"> 
+                </a>
+                
+                <div>
+                    <h3>
+                        <a href="Franco.html">EMILIO AGUINALDO COLLEGE MANILA</a>
+                    </h3>
+                    <p style="color: rgb(207, 206, 212);text-align: center; font-size: 18px; font-weight: bold; margin: 5px 0; background-image: linear-gradient(to right, gray, rgb(50, 43, 43)); width: 150px; padding: 3px; border-radius: 5px;">HydroBlazed X</p>
+                </div>
+                <button class="logout-btn" onclick="logoutUser()">Log Out</button>
+            </header>
+            
+            <nav style="position: relative; padding: 15px; background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);">
+                <a href="Franco.html">Home</a>
+                <a href="About.html">About</a>
+                <a href="blog.html">Latest Post</a>
+                <a href="Gerardo.html">Contact</a>
+                <a href="Verify.html">Form</a>
+            </nav>
+            <div class="username" style="width: 100%; display: flex; justify-content: center;">
+                <span id="navUserName"></span>
+            </div> 
+
+            <h1>Latest Updates on Our Robotics Journey! 🚀</h1>
+
+
+                <div class="article-section">
+                    <div class="article">
+                        <img src="Image/struggle.png" alt="POST">
+                        <h2>Troubleshooting the code for  Remote Control</h2>
+                        <p>Working on the remote control system for Hydroblazed X! 🎮💻 Making sure every command runs smoothly for better control. Almost there! 🔥🚀 #Robotics #HydroblazedX #RemoteControl </p>
+                    </div>
+
+                    <div class="article">
+                        <video src="Image/code.mp4" controls></video>
+                        <h2>Coding Output</h2>
+                        <p>Finalizing the code for our remote system! 🧠💻 One step closer to bringing Hydroblazed X to life. #CodingGrind #HydroblazedX #RoboticsInAction"</p>
+                    </div>
+
+                    <div class="article">
+                        <img src="Image/nano.png" alt="POST">
+                        <h2> Arduino Nano in Action</h2>
+                        <p>This Arduino Nano will be the heart of our remote control system! 🎮⚡ Making sure every command is precise for Hydroblazed X. 🚀🔥 #ArduinoNano #RemoteControl #HydroblazedX</p>
+                    </div>
+                    <div class="article">
+                        <img src="Image/inside.png" alt="POST">
+                        <h2> Inside Our Remote Control"</h2>
+                        <p>A peek inside the remote control for Hydroblazed X! 🎮⚡ Powered by Arduino Nano and a joystick module for precise movements. Almost ready to take control! 🚀🔥 #RemoteControl #HydroblazedX #ArduinoNano</p>
+                    </div>
+                    <div class="article">
+                        <video src="Image/output.mp4" controls></video>
+                        <h2> Testing the Remote Control Output"</h2>
+                        <p>Putting our remote control to the test! 🎮⚡ Ensuring smooth and responsive commands for Hydroblazed X. Almost ready for action! 🚀🔥 #RemoteControl #HydroblazedX #RoboticsTesting</p>
+                    </div>
+                                        <div class="article">
+                        <video src="Image/working.mp4" controls></video>
+                        <h2> BO Motor is Working!</h2>
+                        <p>Tested the BO motor and it’s running just fine—smooth and steady! On to the next step! 🚗💨#HydroblazedX #BOMotor #MotorTest #RoboticsUpdate</p>
+                    </div>
+                                        <div class="article">
+                        <img src="Image/L2901.jpg" controls></img>
+                        <h2> L2901 Problem Fixed!"</h2>
+                        <p>We had a small issue with the L2901 motor driver, but it's all good now. Everything's working great again! 💪⚡#HydroblazedX #L2901 #FixComplete #RoboticsUpdate</p>
+                    </div>
+                                        <div class="article">
+                        <img src="Image/caseidea.jpg" controls></img>
+                        <h2> Firetruck-Inspired Case Coming Up!"</h2>
+                        <p>We're planning to design a firetruck-style case for our build! Cool looks, functional design—let’s make it stand out. 💥🤖#HydroblazedX #FiretruckCase #RoboticsDesign #CustomBuild</p>
+                    </div>
+                                        <div class="article">
+                        <video src="Image/connecting.mp4" controls></video>
+                        <h2> Connecting Transceiver and Receiver!</h2>
+                        <p>We’ve started linking the transceiver and receiver—step by step, making sure everything communicates perfectly. 🚀📶#HydroblazedX #WirelessConnection #TransceiverSetup #RoboticsProgress</p>
+                    </div>
+                                        <div class="article">
+                        <video src="Image/360.mp4" controls></video>
+                        <h2> Working on 360 Movement Code!</h2>
+                        <p>We’re programming the 360 spin feature—soon our bot will be able to move in all directions smoothly. Almost there! 🤖💻#HydroblazedX #360Motion #RobotCoding #RoboticsInProgress</p>
+                    </div>
+                                        <div class="article">
+                        <video src="Image/outcome.mp4" controls></video>
+                        <h2> Hydroblazed X is Up and Running!</h2>
+                        <p>All systems go! Hydroblazed X is working perfectly and ready to roll. Exciting times ahead! 🚀🔥#HydroblazedX #FullyOperational #RoboticsSuccess #OnTheMove</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="site-footer">
+                <p>© 2025 Blog of Group 5. All Rights Reserved.</p>
+            </footer>
+            <script>
+                const articles = document.querySelectorAll('.article');
+
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('reveal');
+                            observer.unobserve(entry.target); 
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                articles.forEach(article => {
+                    observer.observe(article);
+                });
+            </script>
+
+            <script>
+            window.addEventListener("load", () => {
+                document.body.classList.add("fade-in");
+            });
+            </script>
+
+            <script>
+                function checkLoginStatus() {
+                let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+                if (!loggedInUser || !loggedInUser.isLoggedIn) {
+                    alert("You must log in first!");
+                    window.location.href = "Eurie.html"; 
+                }
+                }
+            
+                function logoutUser() {
+                localStorage.removeItem("loggedInUser");
+                alert("Logged out successfully!");
+                window.location.href = "Eurie.html"; 
+                }
+            
+                function displayUserName() {
+                let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+                if (loggedInUser && loggedInUser.isLoggedIn) {
+                    document.getElementById("navUserName").innerText = " " + loggedInUser.username;
+                }
+                }
+            
+                window.onload = () => {
+                setTimeout(() => {
+                    checkLoginStatus();
+                    displayUserName();
+                }, 500);
+                };
+            </script>
+
+        </body>
+        </html>

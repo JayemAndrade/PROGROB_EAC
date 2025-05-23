@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>   
+    <link rel="icon" type="eac" href="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg">
+                                                                                                                 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #242323;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            width: 100vw;
+            background: url('Image/header.png') 
+                no-repeat center center;
+            background-size: cover;
+            min-height: 100px;
+            
+        }
+
+        header img {
+            width: 70px;
+        }
+
+        header h3 a {
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.79);
+            padding: 5px;
+            color: rgb(212, 13, 13);
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .logout-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 5%;
+            
+        }
+
+        .logout-btn:hover {
+            background: darkred;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 15px;
+            background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);
+            border: solid red;
+        }
+
+        nav a {
+            color: rgb(4, 4, 4);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a81212;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeInUp 0.8s ease-out;
+
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .quiz-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .quiz-button:hover {
+            background-color: #2980b9;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #scoreDisplay {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .next {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #2ecc71;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition:  0.3s ease;
+        }
+
+        .next:hover {
+            background-color: #27ae60;
+        }
+        .username{
+            background-color: rgb(247, 205, 17);
+            font-size: medium;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+            padding: 3px;
+          }
+          .site-footer {
+            background-image: linear-gradient(to right, red, white, blue);
+            color: #181704;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }  
+        @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        
+      
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="https://www.facebook.com/eac.edu.ph">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg" alt="EAC">
+            <img style="border-radius: 10px; width: 75px;" src="Image/hydro.jpg"  alt="robot">         </a>
+        
+        <div>
+            <h3>
+                <a href="Franco.html">EMILIO AGUINALDO COLLEGE MANILA</a>
+            </h3>
+            <p style="color: rgb(207, 206, 212);text-align: center; font-size: 18px; font-weight: bold; margin: 5px 0; background-image: linear-gradient(to right, gray, rgb(50, 43, 43)); width: 150px; padding: 3px; border-radius: 5px;">HydroBlazed X</p>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">Log Out</button>
+    </header>
+    
+      <nav style="position: relative; padding: 15px; background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);">
+        <a href="Franco.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="blog.html">Latest Post</a>
+        <a href="Gerardo.html">Contact</a>
+        <a href="Verify.html">Form</a>
+      </nav>
+      <div class="username" style="width: 100%; display: flex; justify-content: center;">
+        <span id="navUserName"></span>
+      </div> 
+
+
+
+    <div class="quiz-container">
+        <h1>HTML Quiz</h1>
+        <p id="question">2. What does CSS stand for?</p>
+
+        <button class="quiz-button" onclick="checkAnswer(false)">A. Computer Style Sheets</button>
+        <button class="quiz-button" onclick="checkAnswer(true)">B. Cascading Style Sheets</button>
+        <button class="quiz-button" onclick="checkAnswer(false)">C. Creative Style Sheets</button>
+        <button class="quiz-button" onclick="checkAnswer(false)">D. Colorful Style Sheets</button>
+
+        <p id="result"></p>
+        <p id="scoreDisplay">Score: 0</p>
+
+        <a class="next" href="Varona2.html" target="_self">Next Question</a>
+    </div>
+    <footer class="site-footer">
+        <p>© 2025 Blog of Group 5. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+
+        let score = localStorage.getItem("quizScore") ? parseInt(localStorage.getItem("quizScore")) : 0;
+        document.getElementById("scoreDisplay").innerText = "Score: " + score;
+
+        function checkAnswer(isCorrect) {
+            if (isCorrect) {
+                document.getElementById("result").innerHTML = "✅ Correct! HTML stands for HyperText Markup Language.";
+                score++;
+            } else {
+                document.getElementById("result").innerHTML = "❌ Incorrect. Try again!";
+            }
+            document.getElementById("scoreDisplay").innerText = "Score: " + score;
+            
+
+            localStorage.setItem("quizScore", score);
+        }
+    </script>
+
+    <script>
+        function checkLoginStatus() {
+          let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+          if (!loggedInUser || !loggedInUser.isLoggedIn) {
+            alert("You must log in first!");
+            window.location.href = "Eurie.html"; 
+          }
+        }
+    
+        function logoutUser() {
+          localStorage.removeItem("loggedInUser");
+          alert("Logged out successfully!");
+          window.location.href = "Eurie.html"; 
+        }
+    
+        function displayUserName() {
+          let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+          if (loggedInUser && loggedInUser.isLoggedIn) {
+            document.getElementById("navUserName").innerText = " " + loggedInUser.username;
+          }
+        }
+    
+        window.onload = () => {
+          setTimeout(() => {
+            checkLoginStatus();
+            displayUserName();
+          }, 500);
+        };
+      </script>
+
+</body>
+</html>

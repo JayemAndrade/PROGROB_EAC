@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form</title>
+  <link rel="icon" type="eac" href="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://scontent.fcrk1-5.fna.fbcdn.net/v/t1.15752-9/478137058_1364304661417017_6355719550073675334_n.png?stp=dst-png_s2048x2048&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEPp30TNdmuCxnVqBvEmOBKgoxoWzxbm-iCjGhbPFub6PL-ZuHiA0rHQAqcvETtPuArp6ZhfKrJl-p6ujmm8vZc&_nc_ohc=vs8MMcuP0WMQ7kNvgHUOO_P&_nc_oc=AdluLK-rHQeGPt4NLBg2wxe5Ipir4JqE_fDozRY0akuyUUxFH1kyR8Q7uyDQid7XVqw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk1-5.fna&oh=03_Q7cD1wHgD2yTvmls-ubCd0-TOUE1j4C_7FNCBN1xd6cyy0uG_w&oe=68065391') no-repeat center center fixed;
+      background-size: cover;
+      z-index: -1;
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: fadeInUp 0.8s ease-out;
+
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      text-align: left;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input {
+      width: 95%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .checkbox-group label,
+    .radio-group label {
+      font-weight: normal;
+      display: inline;
+      margin-left: 5px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #submitBtn {
+      background: blue;
+      color: white;
+    }
+    #submitBtn:hover {
+      background: darkblue;
+    }
+    #submitBtn:disabled {
+      background: grey;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    #resetBtn {
+      background: red;
+      color: white;
+      display: none;
+    }
+    #resetBtn:hover {
+      background: darkred;
+    }
+    input[type="range"] {
+      width: 95%;
+    }
+    #verifiedMessage {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: green;
+      display: none;
+    }
+    nav {
+      background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      border: solid red;
+      position: relative;
+    }
+    nav a {
+      color: rgb(4, 4, 4);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #a81212;
+    }
+    .username{
+      background-color: rgb(247, 205, 17);
+      font-size: medium;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+      padding: 3px;
+    }
+    .site-footer {
+      background-image: linear-gradient(to right, red, white, blue);
+      color: #181704;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+  }
+    @keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  </style>
+</head>
+<body>
+
+  <nav style="position: relative; padding: 15px; background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);">
+    <a href="Franco.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="blog.html">Latest Post</a>
+    <a href="Gerardo.html">Contact</a>
+    <a href="Verify.html">Form</a>
+  </nav>
+  <div class="username" style="width: 100%; display: flex; justify-content: center;">
+    <span id="navUserName"></span>
+  </div> 
+
+  <h2 style="background-color: rgba(237, 192, 28, 0.911); border-radius: 10px; padding: 10px;">Registration Form</h2>
+  <form id="registrationForm" onsubmit="return showSuccessMessage()">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="phone">Phone Number:</label>
+    <input type="number" id="phone" name="phone" pattern="[0-9]{10}" required />
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="1" max="100" placeholder="Enter your age" required />
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" />
+
+    <label for="campus">EAC Campus Location:</label>
+    <select id="campus" name="campus" required>
+      <option value="manila">Manila</option>
+      <option value="cavite">Cavite</option>
+    </select>
+
+    <label for="rating">Grade Level (1-12):</label>
+    <input type="range" id="rating" name="rating" min="1" max="12" step="1" value="1" />
+    <span id="ratingValue">1</span>
+
+    <label for="strand">Select Strand:</label>
+    <select id="strand" name="strand" multiple>
+      <option value="progrob">PROGROB</option>
+      <option value="stem">STEM</option>
+      <option value="humss">HUMSS</option>
+      <option value="abm">ABM</option>
+      <option value="fbs">FBS</option>
+    </select>
+
+    <label for="sectionNumber">Section:</label>
+    <input type="number" id="sectionNumber" name="sectionNumber" min="1" max="20" placeholder="Enter your section" required />
+
+    <label for="skills">Select Your Skills (Hold Ctrl/Cmd to select multiple):</label>
+    <select id="skills" name="skills" multiple>
+      <option value="html">HTML</option>
+      <option value="css">CSS</option>
+      <option value="javascript">JavaScript</option>
+      <option value="python">Python</option>
+      <option value="java">Java</option>
+    </select>
+
+    <label>Select Your Hobbies:</label>
+    <div class="checkbox-group">
+      <input type="checkbox" id="coding" name="hobbies" value="coding" />
+      <label for="coding">Coding</label>
+
+      <input type="checkbox" id="watchingTv" name="hobbies" value="watchingTv" />
+      <label for="watchingTv">Watching TV</label>
+
+      <input type="checkbox" id="music" name="hobbies" value="music" />
+      <label for="music">Music</label>
+    </div>
+
+    <label>Select Your Gender:</label>
+    <div class="radio-group">
+      <input type="radio" id="male" name="gender" value="male" required />
+      <label for="male">Male</label>
+
+      <input type="radio" id="female" name="gender" value="female" required />
+      <label for="female">Female</label>
+
+      <input type="radio" id="other" name="gender" value="other" required />
+      <label for="other">Other</label>
+    </div>
+
+    <label for="time">Registration Time:</label>
+    <input type="time" id="time" name="time" required />
+
+    <button type="submit" id="submitBtn">Submit</button>
+    <button type="button" id="resetBtn">Reset Registration</button>
+  </form>
+
+  <div id="verifiedMessage">You are verified!</div>
+  <footer class="site-footer">
+    <p>© 2025 Blog of Group 5. All Rights Reserved.</p>
+</footer>
+  <script>
+    function getCurrentUser() {
+      return JSON.parse(localStorage.getItem("loggedInUser"));
+    }
+
+    document.getElementById("registrationForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      
+      const user = getCurrentUser();
+      if (!user || !user.username) {
+        alert("No logged in user found!");
+        return;
+      }
+      
+      let formData = {};
+      let inputs = document.querySelectorAll("#registrationForm input, #registrationForm select");
+      
+      inputs.forEach(input => {
+        if (input.type === "checkbox") {
+          if (!formData[input.name]) {
+            formData[input.name] = [];
+          }
+          if (input.checked) {
+            formData[input.name].push(input.value);
+          }
+        } else if (input.type === "radio") {
+          if (input.checked) {
+            formData[input.name] = input.value;
+          }
+        } else {
+          formData[input.name] = input.value.trim();
+        }
+      });
+      
+      localStorage.setItem("registrationData_" + user.username, JSON.stringify(formData));
+      localStorage.setItem("registrationLocked_" + user.username, "true");
+      
+      inputs.forEach(input => input.disabled = true);
+      document.getElementById("submitBtn").disabled = true;
+      document.getElementById("resetBtn").style.display = "block";
+      document.getElementById("verifiedMessage").style.display = "block";
+    });
+    
+    document.getElementById("resetBtn").addEventListener("click", function () {
+      if (confirm("Are you sure you want to reset your registration?")) {
+        const user = getCurrentUser();
+        if (user && user.username) {
+          localStorage.removeItem("registrationData_" + user.username);
+          localStorage.removeItem("registrationLocked_" + user.username);
+        }
+    
+        document.getElementById("registrationForm").reset();
+        let inputs = document.querySelectorAll("#registrationForm input, #registrationForm select");
+        inputs.forEach(input => input.disabled = false);
+    
+        document.getElementById("submitBtn").disabled = false;
+        document.getElementById("resetBtn").style.display = "none";
+        document.getElementById("verifiedMessage").style.display = "none";
+    
+        alert("Registration has been reset. You can now register again.");
+      }
+    });
+    
+    document.getElementById("rating").addEventListener("input", function () {
+      document.getElementById("ratingValue").textContent = this.value;
+    });
+    
+    function showSuccessMessage() {
+      alert("You are now Verified! Check your email.");
+      return false; 
+    }
+  </script>
+  
+  <script>
+    function checkLoginStatus() {
+      let loggedInUser = getCurrentUser();
+      if (!loggedInUser || !loggedInUser.isLoggedIn) {
+        alert("You must log in first!");
+        window.location.href = "Eurie.html"; 
+      }
+    }
+    
+    function logoutUser() {
+      let user = getCurrentUser();
+      if (user && user.username) {
+        localStorage.removeItem("registrationData_" + user.username);
+        localStorage.removeItem("registrationLocked_" + user.username);
+      }
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully! Registration data has been reset.");
+      window.location.href = "Eurie.html"; 
+    }
+    
+    function displayUserName() {
+      let loggedInUser = getCurrentUser();
+      if (loggedInUser && loggedInUser.isLoggedIn) {
+        document.getElementById("navUserName").innerText = " " + loggedInUser.username;
+      }
+    }
+    
+    window.addEventListener("load", function() {
+      checkLoginStatus();
+      displayUserName();
+      
+      let user = getCurrentUser();
+      if (user && user.username) {
+        let savedData = JSON.parse(localStorage.getItem("registrationData_" + user.username));
+        let isLocked = localStorage.getItem("registrationLocked_" + user.username) === "true";
+    
+        if (savedData) {
+          let inputs = document.querySelectorAll("#registrationForm input, #registrationForm select");
+    
+          inputs.forEach(input => {
+            if (input.type === "checkbox") {
+              if (savedData[input.name] && savedData[input.name].includes(input.value)) {
+                input.checked = true;
+              }
+            } else if (input.type === "radio") {
+              if (input.value === savedData[input.name]) {
+                input.checked = true;
+              }
+            } else {
+              input.value = savedData[input.name] || "";
+            }
+          });
+    
+          if (isLocked) {
+            inputs.forEach(input => input.disabled = true);
+            document.getElementById("submitBtn").disabled = true;
+            document.getElementById("resetBtn").style.display = "block";
+            document.getElementById("verifiedMessage").style.display = "block";
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

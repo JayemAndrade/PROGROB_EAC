@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About ProgMillians</title>
+    <link rel="icon" type="eac" href="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg">
+
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            width: 100vw;
+            background: url('Image/header.png') 
+                no-repeat center center;
+            background-size: cover;
+            min-height: 100px;
+            
+        }
+
+        header img {
+            width: 70px;
+        }
+
+        header h3 a {
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.79);
+            padding: 5px;
+            color: rgb(212, 13, 13);
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .logout-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 5%;
+            
+        }
+
+        .logout-btn:hover {
+            background: darkred;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 15px;
+            background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);
+            border: solid red;
+        }
+
+        nav a {
+            color: rgb(4, 4, 4);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a81212;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        nav a:hover {
+            color: #a81212;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+
+            
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        ul {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 8px;
+            background: #e0e0e0;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+
+    #clock {
+        font-size: 50px;
+        margin-top: 30px;
+    
+    }
+    
+    #colorbutton {
+        padding:10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color:red;
+        color:white;
+        border:none;
+        margin-top: 20px;
+    
+    }
+    .username{
+        background-color: rgb(247, 205, 17);
+        font-size: medium;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        padding: 3px;
+      }
+    
+    #colorbutton:hover {
+        background-color:blue;
+    
+    }  
+    .site-footer {
+        background-image: linear-gradient(to right, red, white, blue);
+        color: #181704;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }   
+        @keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    </style>
+</head>
+<body onload="startClock()">
+    <header>
+        <a href="https://www.facebook.com/eac.edu.ph">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg" alt="EAC">
+            <img style="border-radius: 10px; width: 75px;" src="Image/hydro.jpg"  alt="robot"> 
+        </a>
+        
+        <div>
+            <h3>
+                <a href="Franco.html">EMILIO AGUINALDO COLLEGE MANILA</a>
+            </h3>
+            <p style="color: rgb(207, 206, 212);text-align: center; font-size: 18px; font-weight: bold; margin: 5px 0; background-image: linear-gradient(to right, gray, rgb(50, 43, 43)); width: 150px; padding: 3px; border-radius: 5px;">HydroBlazed X</p>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">Log Out</button>
+    </header>
+    
+      <nav style="position: relative; padding: 15px; background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);">
+        <a href="Franco.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="blog.html">Latest Post</a>
+        <a href="Gerardo.html">Contact</a>
+        <a href="Verify.html">Form</a>
+      </nav>
+      <div class="username" style="width: 100%; display: flex; justify-content: center;">
+        <span id="navUserName"></span>
+      </div>
+
+    <div class="container">
+        <h1>Your Ultimate Programming Hub!</h1>
+        <p>In today’s fast-paced digital world, programming is more than just a skill—it’s a gateway to innovation, problem-solving, and endless opportunities.</p>
+        <p>Whether you want to build websites, develop applications, automate tasks, or create advanced software, coding is the foundation of the modern tech industry.</p>
+        
+        <h2>What We Offer</h2>
+        <ul>
+            <li>💻 <strong>Comprehensive Programming Language Tutorials</strong> – Learn Python, C++, Java, JavaScript, HTML, CSS, and more.</li>
+            <li>🚀 <strong>Hands-on Coding Challenges & Real-World Projects</strong> – Apply your skills with real-life coding exercises.</li>
+            <li>📝 <strong>Quizzes and Assessments</strong> – Test your knowledge with engaging quizzes.</li>
+            <li>🌍 <strong>Community & Collaboration</strong> – Connect with fellow programmers in a supportive environment.</li>
+
+        </ul>
+
+        <h2>This is our PAGE! <p style="font-size: small; color: black;">(CLICK THIS IMAGE)</p></h2>
+       <a href="https://web.facebook.com/profile.php?id=61572793761595"><img src="Image/page.png" width="500px" alt="prog"></a>
+        <h2>Why Choose PROGMILLIANS?</h2>
+        <ul>
+            <li>✅ <strong>Beginner-Friendly Approach</strong> – Perfect for those with zero coding experience.</li>
+            <li>✅ <strong>Practical & Engaging Learning</strong> – Learn by doing with interactive exercises.</li>
+            <li>✅ <strong>Flexible & Self-Paced</strong> – Learn at your own pace, anytime, anywhere.</li>
+            <li>✅ <strong>Career-Oriented Learning</strong> – Gain real-world programming skills for tech jobs.</li>
+        </ul>
+        
+        <h2>Your Coding Journey Starts Here!</h2>
+        <p>At PROGMILLIANS, we make learning programming fun, engaging, and accessible to everyone.</p>
+        <p><Button> <a href="Varona.html" style="color: white; text-decoration: none; "> Start Quiz</a></Button> today and become a <strong>PROGMILLIAN</strong>!</p>
+    </div>
+
+    <h1>ProgMillians Clock</h1>
+            
+    <div id="clock"></div>
+
+    <button id="colorbutton" onclick="changeBackground()" onmouseover="highlightbutton(this)" onmouseout="resetButton(this)"> Change Background </button>
+
+    <footer class="site-footer">
+        <p>© 2025 Blog of Group 5. All Rights Reserved.</p>
+    </footer>
+
+<script>
+    function startClock() {
+        setInterval(updateClock, 1000);
+        updateClock();
+
+    }
+
+    function updateClock() {
+    let now = new Date();
+    let timeString = now.toLocaleTimeString();
+    document.getElementById("clock"). innerHTML = timeString;
+
+    }
+
+    function changeBackground() {
+        document.body.style.backgroundColor= getRandomColor();
+
+    }
+
+    function getRandomColor() {
+    let letters = "01234";
+    let color = "#";
+    for (let i = 0; i < 4; i++) {
+        color += letters[Math.floor(Math.random() * 4)];
+    }
+        return color;
+
+    }
+
+    function highlightbutton(button) {
+        button.style.backgroundColor="red";
+    
+    }
+
+    function resetButton(button) {
+    button.style.backgroundColor="gray";
+
+    }
+</script>
+<script> // Gawa ng LEADER SIR 
+    function checkLoginStatus() {
+        let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+        if (!loggedInUser || !loggedInUser.isLoggedIn) {
+            alert("You must log in first!");
+            window.location.href = "Eurie.html";
+        }
+    }
+
+    function logoutUser() {
+        localStorage.removeItem("loggedInUser");
+        alert("Logged out successfully!");
+        window.location.href = "Eurie.html"; 
+    }
+
+    function displayUserName() {
+        let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (loggedInUser && loggedInUser.isLoggedIn) {
+          document.getElementById("navUserName").innerText = " " + loggedInUser.username;
+        }
+      }
+
+    window.addEventListener("load", function() {
+        displayUserName();
+        setTimeout(checkLoginStatus, 500); 
+    });
+    
+</script>
+
+
+</body>
+</html>

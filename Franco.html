@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydroblazed X – Smart Firefighting Robot</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #171717;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            width: 100vw;
+            background: url('Image/header.png') no-repeat center center;
+            background-size: cover;
+            min-height: 100px;
+            
+        }
+
+        header img {
+            width: 70px;
+        }
+
+        header h3 a {
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.79);
+            padding: 5px;
+            color: rgb(212, 13, 13);
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .logout-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 5%;
+            
+        }
+
+        .logout-btn:hover {
+            background: darkred;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 15px;
+            background-image: linear-gradient(to right, rgb(112, 4, 4), white, blue);
+            border: solid red;
+            animation: slideIn 1s ease;
+        }
+
+        nav a {
+            color: rgb(4, 4, 4);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #a81212;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            background: url('https://media.istockphoto.com/id/1351965170/vector/artificial-intelligence-human-head-outline-futuristic-technology-and-engineering-concept.jpg?s=612x612&w=0&k=20&c=S-shF-ivAYHGSz0OuymPDvyVcyOtyZAdxGoToKuBltU=') center center no-repeat;
+            background-size: cover;
+            padding: 80px;
+            border-radius: 20px; 
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6); 
+            max-width: 1400px; 
+            margin: 80px auto; 
+            gap: 80px; 
+        }
+
+        .content {
+            flex: 1;
+            max-width: 700px; 
+            padding: 40px; 
+        }
+
+        h1 {
+            font-size: 48px; 
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            color: #38f5eb;
+            font-size: 28px;
+            margin-bottom: 20px; 
+            background-color: rgba(15, 8, 8, 0.352);
+            border-radius: 15px; }
+
+        .description {
+            color: #ccc;
+            font-size: 22px; 
+            line-height: 1.6; 
+            margin-bottom: 30px; 
+        }
+
+        .buttons {
+            margin-top: 30px; 
+        }
+
+        .hire-btn, .talk-btn {
+            padding: 16px 35px; 
+            border: none;
+            border-radius: 8px; 
+            cursor: pointer;
+            font-size: 22px; 
+            transition: 0.3s;
+        }
+
+        .hire-btn {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .talk-btn {
+            background: transparent;
+            border: 3px solid #38f5eb;
+            color: #38f5eb;
+            animation: glow-border 3s linear infinite;
+        }
+
+        .hire-btn:hover, .talk-btn:hover {
+            opacity: 0.9;
+        }
+
+        .robot video {
+            width: 100%;
+            max-width: 600px; 
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.6);
+            animation: float 3s ease-in-out infinite, glowing-border 3s linear infinite;
+        }
+        
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                gap: 20px;
+                animation: fadeInUp 1s ease-in-out;
+
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+        }
+
+        .hydroblazed {
+            margin: 10%;
+            padding: 20px;
+            color: black;
+            border-radius: 20px;
+            background-color: #ffffff;
+
+        }
+
+        .eac {
+            margin-top: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            background-color: rgb(244, 239, 231);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          img:hover {
+            transform: scale(1.1);
+          }
+          .site-footer {
+            background-image: linear-gradient(to right, red, white, blue);
+            color: #181704;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .username{
+            background-color: rgb(247, 205, 17);
+            font-size: medium;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+            padding: 3px;
+          }
+        .welcome {
+            background-image: url('https://img.freepik.com/free-vector/gradient-technology-futuristic-background_52683-75946.jpg');
+            padding: 50px;
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    
+        @keyframes glow-border {
+            0% {
+              box-shadow: 0 0 5px gold;
+              border-color: gold;
+            }
+            50% {
+              box-shadow: 0 0 15px #1705a3;
+              border-color: #1b0bcd;
+            }
+            100% {
+              box-shadow: rgb(214, 52, 12);
+              border-color: rgb(94, 207, 46);
+            }
+          }
+
+          @keyframes glowing-border {
+            0% {
+              box-shadow:
+                0 0 5px blue,
+                0 0 10px blue,
+                0 0 15px blue,
+                0 0 20px blue inset;
+            }
+            25% {
+              box-shadow:
+                5px 0 10px blue,
+                10px 0 15px blue,
+                15px 0 20px blue,
+                20px 0 25px blue inset;
+            }
+            50% {
+              box-shadow:
+                0 5px 10px blue,
+                0 10px 15px blue,
+                0 15px 20px blue,
+                0 20px 25px blue inset;
+            }
+            75% {
+              box-shadow:
+                -5px 0 10px blue,
+                -10px 0 15px blue,
+                -15px 0 20px blue,
+                -20px 0 25px blue inset;
+            }
+            100% {
+              box-shadow:
+                0 0 5px blue,
+                0 0 10px blue,
+                0 0 15px blue,
+                0 0 20px blue inset;
+            }
+          }
+        
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="https://www.facebook.com/eac.edu.ph">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg" alt="EAC">
+            <img style="border-radius: 10px; width: 75px;" src="IMAGE/hydro.jpg"  alt="robot"> 
+        </a>
+        
+        <div>
+            <h3>
+                <a href="Franco.html">EMILIO AGUINALDO COLLEGE MANILA</a>
+            </h3>
+            <p style="color: rgb(207, 206, 212);text-align: center; font-size: 18px; font-weight: bold; margin: 5px 0; background-image: linear-gradient(to right, gray, rgb(50, 43, 43)); width: 150px; padding: 3px; border-radius: 5px;">HydroBlazed X</p>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">Log Out</button>
+    </header>
+    
+        <nav>
+            <a href="Franco.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="blog.html">Latest Post</a>
+            <a href="Gerardo.html">Contact</a>
+            <a href="Verify.html">Form</a>
+        </nav>
+        <div class="username" style="color: black; width: 100%; display: flex; justify-content: center;">
+            <span id="navUserName"></span>
+          </div>
+
+ 
+    <div class="Hydro">      
+    <div class="container">
+        <div class="content">
+            <h1>Hydroblazed X – Smart Firefighting Robot 🚒</h1>
+            <h2 style="padding: 10px;" class="subtitle">Advanced Fire Detection & Prevention</h2>
+            <p class="description">
+                Hydroblazed X is a firetruck robot with sensors that detect and respond to fires. 
+                It quickly identifies heat sources, helping prevent fire hazards and improve safety. 🚒🔥
+            </p>
+            <div class="buttons">
+                <button class="talk-btn">Let's Talk</button>
+            </div>
+        </div>
+        <div class="robot">
+            <video src="Image/hydroblazed.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+</div>
+    
+<section class="welcome">
+   <div class="hydroblazed"> <section id="home">
+        <h1 style="color: rgb(28, 7, 107); text-align: center;">Welcome to HydroBlazed X !</h1>
+        <hr>
+        <h4 style="text-align: justify;">
+          Hydroblazed X is an innovative firefighting robot designed to detect and respond to fires efficiently. Whether you're exploring automation or learning about fire safety technology, we provide in-depth insights into its advanced features.
+        </h4>
+       
+        <img class="eac" src="Image/Eac.png" id="hoverimage" alt="Sample Image"
+             onmouseover="changeImage()"
+             onmouseout="resetImage()"
+             width="300">
+      </section>
+    
+      <h2 style="color: rgb(28, 7, 107);">What You’ll Find on Hydroblazed X:
+    </h2>
+      <hr>
+      <li><b>Arduino Uno – </b>The microcontroller that processes commands and controls the system.</li>
+      <li><b>Fire Detection Sensors – </b>Components that detect flames and temperature changes.
+      </li>
+      <li><b>Autonomous Navigation – </b> Allows the robot to move and avoid obstacles.</li>
+      <li><b>Water Dispensing System – </b>Releases water to suppress fires.</li>
+      <li><b>Joystick-Controlled Remote – </b>Operated using a joystick for manual navigation and control.</li>
+      <li>Explore  <b> Hydroblazed X</b> and its advanced firefighting technology! </li>
+      </div>
+    </section>
+
+      <footer class="site-footer">
+        <p>© 2025 Blog of Group 5. All Rights Reserved.</p>
+    </footer>
+    <script>
+        document.querySelector(".talk-btn").addEventListener("click", function() {
+            document.querySelector("#home").scrollIntoView({ behavior: "smooth" });
+        });
+        
+      function changeImage() {
+          document.getElementById("hoverimage").src = "Image/Eac.png"; // Change to another image
+      }
+    
+      function resetImage() {
+          document.getElementById("hoverimage").src = "Image/hydro.jpg"; // Reset to original
+      }
+    </script>
+    <script>
+    function checkLoginStatus() {
+        let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (!loggedInUser || !loggedInUser.isLoggedIn) {
+          alert("You must log in first!");
+          window.location.href = "Eurie.html"; 
+        }
+      }
+  
+      function logoutUser() {
+        localStorage.removeItem("loggedInUser");
+        alert("Logged out successfully!");
+        window.location.href = "Eurie.html"; 
+      }
+  
+      function displayUserName() {
+        let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (loggedInUser && loggedInUser.isLoggedIn) {
+          document.getElementById("navUserName").innerText = " " + loggedInUser.username;
+        }
+      }
+  
+      window.onload = () => {
+        setTimeout(() => {
+          checkLoginStatus();
+          displayUserName();
+        }, 500);
+      };
+    </script>
+</body>
+</html>

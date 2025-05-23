@@ -1,0 +1,130 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <link rel="icon" type="eac" href="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg">
+  <style>
+   
+    body {
+    font-family: Arial, sans-serif; 
+    text-align: center;
+    background: url('https://media.istockphoto.com/id/1005771302/photo/programming-code-abstract-technology-background-footage.jpg?s=612x612&w=0&k=20&c=jJLWi3ud1AbsVfNsCqkeE6FswJHlbSlpx4Al6PDy_5s=');
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 1s ease-in-out;
+    }
+
+    h1 {
+        background-color: #505050d2;
+        padding: 10px;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    }
+
+    p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+    }
+
+    a {
+  display: inline-block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  background-color: #5c5f5f;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s; 
+    }
+
+    a:hover {
+  background-color: #e65100;
+  transform: scale(1.05); 
+    }
+
+    .highlighted {
+  background-color: rgba(8, 4, 68, 0.829); 
+  padding: 5px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease-in-out;
+    }
+
+    h1, p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlide 1s forwards;
+    }
+    
+    h1:nth-of-type(2) {
+      animation-delay: 0.3s;
+    }
+    
+    @keyframes fadeSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+   </style> 
+
+</head>
+<body>
+  <h1><span id="navUserName" style="color: rgb(236, 233, 233);  font-weight: bold;  ">
+  </span></h1>
+  <h1>Welcome to our ProgRob! </h1>
+  
+  <p id="info">Emilio Aguinaldo College</p>
+  
+  <a href="Franco.html" target="_blank" rel="noopener noreferrer" 
+     onmouseover="highlightedText()" onmouseout="removeHighlighted()">Home</a>
+  
+  <script>
+    function highlightedText() {
+      document.getElementById('info').classList.add('highlighted'); 
+    }
+
+    function removeHighlighted() {
+      document.getElementById('info').classList.remove('highlighted');
+    }
+  </script>
+  <script>
+    function checkLoginStatus() {
+      let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (!loggedInUser || !loggedInUser.isLoggedIn) {
+        alert("You must log in first!");
+        window.location.href = "Eurie.html"; 
+      }
+    }
+
+    function logoutUser() {
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully!");
+      window.location.href = "Eurie.html"; 
+    }
+
+    function displayUserName() {
+      let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (loggedInUser && loggedInUser.isLoggedIn) {
+        document.getElementById("navUserName").innerText = "Hello! " + loggedInUser.username;
+      }
+    }
+
+    window.onload = () => {
+      setTimeout(() => {
+        checkLoginStatus();
+        displayUserName();
+      }, 500);
+    };
+  </script>
+  
+</body>
+</html>
